@@ -8,13 +8,10 @@
 </head>
 <body>
 <div class="container mt-4">
-  <?php
-  if($_COOKIE['user'] == ''):
-  ?>
+
      <div class="col">
       <h1>Форма авторизации</h1>
       <form action="add.php" method="post">
-      <form action="authe.php" method="post">
         <input type="text" class="form-control" name="first_name"
                id="first_name" placeholder="Введите имя"><br>
         <input type="text" class="form-control" name="last_name"
@@ -26,10 +23,6 @@
       </form>
       </form>
     </div>
-    <?php else: ?>
-      <p>Привет <?=$_COOKIE['user']?>. Чтоби вийти нажмите <a
-          href="exit.php">здесь</a>.</p>
-    <?php endif;?>
 
   </div>
 </div>
