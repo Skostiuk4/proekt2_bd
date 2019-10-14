@@ -8,7 +8,6 @@
 </head>
 <body>
 <div class="container mt-4">
-
      <div class="col">
       <h1>Форма авторизации</h1>
       <form action="add.php" method="post">
@@ -21,10 +20,6 @@
         <button class="btn btn-success"
                 type="submit">Авторизоватся</button>
       </form>
-      </form>
-    </div>
-
-  </div>
 </div>
 </body>
 </html>
