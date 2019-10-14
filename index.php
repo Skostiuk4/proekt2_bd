@@ -2,21 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Форма регистрации</title>
+  <title>Форма реєстрації</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" type="text/css"/>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="container mt-4">
      <div class="col">
-      <h1>Форма авторизации</h1>
+      <h1>Форма авторизації</h1>
       <form action="add.php" method="post">
         <input type="text" class="form-control" name="first_name"
-               id="first_name" placeholder="Введите имя"><br>
+               id="first_name" placeholder="Введіть Ім'я"><br>
         <input type="text" class="form-control" name="last_name"
-               id="last_name" placeholder="Введите Фамилию"><br>
+               id="last_name" placeholder="Введіть Фамілію"><br>
         <input type="text" class="form-control" name="email"
-               id="email" placeholder="Введите Email"><br>
+               id="email" placeholder="Введіть Email"><br>
         <select type="list" class="form-control" name="age"
                id="age" placeholder="Ваш вік"><br>
             <option>1</option>
@@ -34,9 +34,9 @@
             <option>13</option>
             <option>14</option>
             <option>15</option>
-          </select><br>
+            </select><br>
         <button class="btn btn-success"
-                type="submit">Авторизоватся</button>
+                type="submit">Авторизоватись</button>
       </form>
 </div>
 </body>
