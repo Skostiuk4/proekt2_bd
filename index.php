@@ -17,8 +17,24 @@
                id="last_name" placeholder="Введите Фамилию"><br>
         <input type="text" class="form-control" name="email"
                id="email" placeholder="Введите Email"><br>
-        <input type="text" class="form-control" name="age"
+        <select type="list" class="form-control" name="age"
                id="age" placeholder="Ваш вік"><br>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+            <option>11</option>
+            <option>12</option>
+            <option>13</option>
+            <option>14</option>
+            <option>15</option>
+          </select><br>
         <button class="btn btn-success"
                 type="submit">Авторизоватся</button>
       </form>
