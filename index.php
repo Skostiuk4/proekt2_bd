@@ -17,6 +17,8 @@
                id="last_name" placeholder="Введите Фамилию"><br>
         <input type="text" class="form-control" name="email"
                id="email" placeholder="Введите Email"><br>
+        <input type="text" class="form-control" name="age"
+               id="age" placeholder="Ваш вік"><br>
         <button class="btn btn-success"
                 type="submit">Авторизоватся</button>
       </form>

@@ -5,11 +5,14 @@
   FILTER_SANITIZE_STRING);
  $email = filter_var(trim($_POST['email']),
   FILTER_SANITIZE_STRING);
+ $age = filter_var(trim($_POST['age']),
+  FILTER_SANITIZE_STRING);
 
  $pass = md5($pass."dgdfhtr432");
  $mysql = new mysqli('localhost', 'root',  '1111', 'resource1');
- $mysql->query("INSERT INTO `resource1`  (`first_name`, `last_name`, `email`)
-  VALUES('$first_name', '$last_name', '$email')");
+ $mysql->query("INSERT INTO `resource1`  (`first_name`, `last_name`, `email`, `age`)
+  VALUES('$first_name', '$last_name', '$email', '$age')");
+
 
  $mysql->close();
  header('Location: /proekt2_bd');
