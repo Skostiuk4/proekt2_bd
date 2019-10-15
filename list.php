@@ -1,18 +1,15 @@
 <?php
-    if(isset($_POST['search'])) {
-
-    }
-    else {
-        $query = "SELECT * FROM `users`";
-        $search_result = filterTable($query);
-    }
-    function filterTable($query) {
-        $connect = mysqli_connect("localhost", 'root', '1111', 'resource1');
-        $filter_Result = mysqli_query($connect, $query);
-        return $filter_Result;
-    }
-
-    ?>
+  if(isset($_POST['search']));
+  else {
+      $query = "SELECT * FROM `users`";
+      $search_result = filterTable($query);
+  }
+  function filterTable($query) {
+      $connect = mysqli_connect("localhost", 'root', '1111', 'resource1');
+      $filter_Result = mysqli_query($connect, $query);
+      return $filter_Result;
+  }
+  ?>
 
 <!doctype html>
 <html lang="en">
@@ -22,13 +19,10 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" type="text/css"/>
-
     <title>Document</title>
 </head>
 <body>
     <form>
-
-
         <table class="table">
             <thead>
             <tr>
@@ -49,7 +43,6 @@
             <?php endwhile;?>
         </table>
     </form>
-
 </body>
 </html>
 
