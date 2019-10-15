@@ -1,9 +1,9 @@
 <?php
-$query = "SELECT * FROM `users`";
-$search_result = filterTable($query);
+  $query = "SELECT * FROM `users`";
+  $search_result = filterTable($query);
 
 function filterTable($query) {
-	$connect = mysqli_connect("localhost", 'root', '1111', 'resource1');
+    $connect = mysqli_connect("localhost", 'root', '1111', 'resource1');
 	$filter_Result = mysqli_query($connect, $query);
 	return $filter_Result;
 }
@@ -28,7 +28,7 @@ function filterTable($query) {
             <th>Email</th>
             <th>Age</th>
         </tr>
-								<?php while ($row = mysqli_fetch_array($search_result)):?>
+        <?php while ($row = mysqli_fetch_array($search_result)):?>
             <tr>
                 <td><?php echo $row['id'];?></td>
                 <td><?php echo $row['first_name'];?></td>
@@ -36,7 +36,7 @@ function filterTable($query) {
                 <td><?php echo $row['email'];?></td>
                 <td><?php echo $row['age'];?></td>
             </tr>
-								<?php endwhile;?>
+        <?php endwhile;?>
     </table>
 </form>
 </body>
