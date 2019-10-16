@@ -28,7 +28,7 @@
               <th>Email</th>
               <th>Age</th>
           </tr>
-          <?php foreach ($row = mysqli_fetch_array($search_result) as $value):?>
+          <?php while ($row = mysqli_fetch_array($search_result)):?>
               <tr>
                 <td><?php echo $row['id'];?></td>
                 <td><?php echo $row['first_name'];?></td>
@@ -36,8 +36,8 @@
                 <td><?php echo $row['email'];?></td>
                 <td><?php echo $row['age'];?></td>
               </tr>
-            <?php endforeach;?>
           </thead>
+            <?php endwhile;?>
         </table>
 </body>
 </html>
