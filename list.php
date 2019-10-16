@@ -19,7 +19,6 @@
     <title>Document</title>
 </head>
 <body>
-  <form>
       <table class="table">
           <thead>
           <tr>
@@ -38,8 +37,8 @@
                 <td><?php echo $row['age'];?></td>
               </tr>
             <?php endforeach;?>
+          </thead>
         </table>
-    </form>
 </body>
 </html>
 
