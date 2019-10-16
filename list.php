@@ -2,12 +2,12 @@
   $query = "SELECT * FROM `users`";
   $search_result = filterTable($query);
 
-function filterTable($query) {
+  function filterTable($query) {
     $connect = mysqli_connect("localhost", 'root', '1111', 'resource1');
-	$filter_Result = mysqli_query($connect, $query);
-	return $filter_Result;
-}
-?>
+    $filter_Result = mysqli_query($connect, $query);
+    return $filter_Result;
+  }
+  ?>
 
 <!doctype html>
 <html lang="en">
@@ -19,26 +19,27 @@ function filterTable($query) {
     <title>Document</title>
 </head>
 <body>
-<form>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>First name</th>
-            <th>Email</th>
-            <th>Age</th>
-        </tr>
-        <?php while ($row = mysqli_fetch_array($search_result)):?>
-            <tr>
+  <form>
+      <table class="table">
+          <thead>
+          <tr>
+              <th>Id</th>
+              <th>First name</th>
+              <th>Last name</th>
+              <th>Email</th>
+              <th>Age</th>
+          </tr>
+          <?php foreach ($row = mysqli_fetch_array($search_result) as $value):?>
+              <tr>
                 <td><?php echo $row['id'];?></td>
                 <td><?php echo $row['first_name'];?></td>
                 <td><?php echo $row['last_name'];?></td>
                 <td><?php echo $row['email'];?></td>
                 <td><?php echo $row['age'];?></td>
-            </tr>
-        <?php endwhile;?>
-    </table>
-</form>
+              </tr>
+            <?php endforeach;?>
+        </table>
+    </form>
 </body>
 </html>
 
