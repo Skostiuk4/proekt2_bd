@@ -29,9 +29,8 @@
               <th>Age</th>
           </tr>
           </thead>
-
-          <?php foreach ($row = mysqli_fetch_array($search_result) as $value):?>
               <tbody>
+              <?php foreach ($row = mysqli_fetch_array($search_result) as $value):?>
               <tr>
                 <td><?php echo $row['id'];?></td>
                 <td><?php echo $row['first_name'];?></td>
