@@ -1,12 +1,18 @@
 <?php
-  $query = "SELECT * FROM `users`";
-  $search_result = filterTable($query);
-
   function filterTable($query) {
     $connect = mysqli_connect("localhost", 'root', '1111', 'resource1');
     $filter_Result = mysqli_query($connect, $query);
     return $filter_Result;
   }
+  if (isset($_GET['del'])) {
+      $id = $_GET['del'];
+
+      $query = "DELETE FROM `users` WHERE id=$id";
+	  $search_result = filterTable($query);
+
+  }
+$query = "SELECT * FROM `users`";
+$search_result = filterTable($query);
   ?>
 
 <!doctype html>
@@ -27,6 +33,7 @@
               <th>Last name</th>
               <th>Email</th>
               <th>Age</th>
+              <th>Action</th>
           </tr>
           </thead>
           <tbody>
@@ -37,7 +44,8 @@
                 <td><?php echo $row['first_name'];?></td>
                 <td><?php echo $row['last_name'];?></td>
                 <td><?php echo $row['email'];?></td>
-                <td><?php echo $row['age'];?>
+                  <td><?php echo $row['age'];?></td>
+                  <td><a href="?del=<?php echo $row['id'];?>" >remove</a></td>
               </tr>
               <?php endwhile;?>
           </tbody>
