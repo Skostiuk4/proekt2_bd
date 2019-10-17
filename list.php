@@ -28,7 +28,10 @@
               <th>Email</th>
               <th>Age</th>
           </tr>
+          </thead>
+
           <?php foreach ($row = mysqli_fetch_array($search_result) as $value):?>
+              <tbody>
               <tr>
                 <td><?php echo $row['id'];?></td>
                 <td><?php echo $row['first_name'];?></td>
@@ -36,7 +39,7 @@
                 <td><?php echo $row['email'];?></td>
                 <td><?php echo $row['age'];?>
               </tr>
-          </thead>
+              </tbody>
             <?php endforeach;?>
         </table>
 </body>
