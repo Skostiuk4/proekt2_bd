@@ -38,8 +38,8 @@
                 <td><?php echo $row['email'];?></td>
                 <td><?php echo $row['age'];?>
               </tr>
+              <?php endforeach;?>
               </tbody>
-            <?php endforeach;?>
         </table>
 </body>
 </html>
