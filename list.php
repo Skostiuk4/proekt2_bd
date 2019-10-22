@@ -1,55 +1,66 @@
 <?php
-  function filterTable($query) {
-    $connect = mysqli_connect("localhost", 'root', '1111', 'resource1');
-    $filter_Result = mysqli_query($connect, $query);
-    return $filter_Result;
+
+  session_start();
+  
+  $mysqli = new mysqli('localhost', 'root', '1111', 'resource1') or die(mysqli_error($mysqli));
+
+  $id = 0;
+  $first_name = '';
+  $last_name = '';
+  $email = '';
+  $age = '';
+
+  if (isset($_POST['save'])) {
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $email = $_POST['email'];
+    $age = $_POST['age'];  
+
+    
+    
+    $mysqli->query("INSERT INTO `users` (`first_name`, `last_name`, `email`, `age`) VALUES('$first_name', '$last_name', '$email', '$age')") or die($mysqli->error);
+
+    $_SESSION['message'] = "Record has been saved!";
+    $_SESSION['msg_type'] = "success"; 
+
+    header("location: index.php");
+
   }
-  if (isset($_GET['del'])) {
-      $id = $_GET['del'];
 
-      $query = "DELETE FROM `users` WHERE id=$id";
-	  $search_result = filterTable($query);
+  if (isset($_GET['remuve'])) {
+    $id = $_GET['remuve'];
+    $mysqli->query("DELETE FROM users WHERE id=$id") or die($mysqli->error());
 
+    $_SESSION['message'] = "Record has been remuved!";
+    $_SESSION['msg_type'] = "danger";
+
+    header("location: index.php");
   }
-$query = "SELECT * FROM `users`";
-$search_result = filterTable($query);
-  ?>
 
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" type="text/css"/>
-    <title>Document</title>
-</head>
-<body>
-      <table class="table">
-          <thead>
-          <tr>
-              <th>Id</th>
-              <th>First name</th>
-              <th>Last name</th>
-              <th>Email</th>
-              <th>Age</th>
-              <th>Action</th>
-          </tr>
-          </thead>
-          <tbody>
-          <?php while ($row = mysqli_fetch_array($search_result)):?>
-          <tbody>
-              <tr>
-                <td><?php echo $row['id'];?></td>
-                <td><?php echo $row['first_name'];?></td>
-                <td><?php echo $row['last_name'];?></td>
-                <td><?php echo $row['email'];?></td>
-                  <td><?php echo $row['age'];?></td>
-                  <td><a href="?del=<?php echo $row['id'];?>" >remove</a></td>
-              </tr>
-              <?php endwhile;?>
-          </tbody>
-        </table>
-</body>
-</html>
+  if (isset($_GET['edit'])) {
+    $id = $_GET['edit'];
+    $update = true;
+    $result = $mysqli->query("SELECT * FROM users WHERE id=$id") or die($mysqli->error());
+    if (count($result)==1){
+      $row = $result->fetch_array();
+      $first_name = $row['first_name'];
+      $last_name = $row['last_name'];
+      $email = $row['email'];
+      $age = $row['age'];
+    }
+  }
 
+  if (isset($_POST['update'])){
+     $id = $_POST['id'];
+     $first_name = $_POST['first_name'];
+     $last_name = $_POST['last_name'];
+     $email = $_POST['email'];
+     $age = $_POST['age'];
+
+    $mysqli->query("UPDATE users SET first_name='$first_name', last_name='$last_name', email='$email', age='$age' WHERE id=$id") or die($mysqli->error);
+
+    $_SESSION['message'] = "Record has been updated!";
+    $_SESSION['msg_type'] = "Warning";
+
+    header('location: index.php');
+  }
