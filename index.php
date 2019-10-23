@@ -29,35 +29,35 @@
     //pre_r($result);
     ?>
 
-          <table class="table">
-          <thead>
-          <tr>
-              <th>Id</th>
-              <th>First name</th>
-              <th>Last name</th>
-              <th>Email</th>
-              <th>Age</th>
-              <th>Action</th>
+        <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+      <?php while ($row = $result->fetch_assoc()): ?>
+        <tbody>
+         <tr>
+            <td><?php echo $row['id'];?></td>
+            <td><?php echo $row['first_name'];?></td>
+            <td><?php echo $row['last_name'];?></td>
+            <td><?php echo $row['email'];?></td>
+            <td><?php echo $row['age'];?></td>
+            <td>
+                <a href="index.php?edit=<?php echo $row['id']; ?>"
+                class="btn btn-info">Edit</a>
+                <a href="list.php?remuve=<?php echo $row['id']; ?>"
+                class="btn btn-danger">remuve</a>
+            </td>  
           </tr>
-          </thead>
-          <tbody>
-          <?php while ($row = $result->fetch_assoc()): ?>
-          <tbody>
-              <tr>
-                <td><?php echo $row['id'];?></td>
-                <td><?php echo $row['first_name'];?></td>
-                <td><?php echo $row['last_name'];?></td>
-                <td><?php echo $row['email'];?></td>
-                  <td><?php echo $row['age'];?></td>
-                  <td>
-                    <a href="index.php?edit=<?php echo $row['id']; ?>"
-                    class="btn btn-info">Edit</a>
-                    <a href="list.php?remuve=<?php echo $row['id']; ?>"
-                    class="btn btn-danger">remuve</a>
-                    </td>  
-              </tr>
-              <?php endwhile;?>
-          </tbody>
+      <?php endwhile;?>
+        </tbody>
         </table>
 <?php
 
@@ -99,7 +99,7 @@
             </select><br>
              <div class ="form-group">
             <?php
-            if ($update == true):
+    if ($update == true):
               ?>
         <button type="submit" class="btn btn-primary" name="update">Update</button>
                 <?php else: ?>
